@@ -12,6 +12,8 @@
 
 namespace PhpCsFixer;
 
+use PhpCsFixer\Fixer\Basic\BracesFixer;
+use PhpCsFixer\Fixer\Import\OrderedImportsFixer;
 use PhpCsFixer\Fixer\PhpUnit\PhpUnitTargetVersion;
 
 /**
@@ -54,6 +56,44 @@ final class RuleSet implements RuleSetInterface
             'switch_case_semicolon_to_colon' => true,
             'switch_case_space' => true,
             'visibility_required' => true,
+        ],
+        '@PSR12' => [
+            '@PSR2' => true,
+            'single_import_per_statement' => false,
+            'lowercase_cast' => true,
+            'short_scalar_cast' => true,
+            'blank_line_after_opening_tag' => true,
+            'no_leading_import_slash' => true,
+            'ordered_imports' => [
+                'importsOrder' => [
+                    OrderedImportsFixer::IMPORT_TYPE_CLASS,
+                    OrderedImportsFixer::IMPORT_TYPE_FUNCTION,
+                    OrderedImportsFixer::IMPORT_TYPE_CONST,
+                ]
+            ],
+            'declare_equal_normalize' => [
+                'space' => 'none'
+            ],
+            'new_with_braces' => true,
+            'braces' => [
+                'allow_single_line_closure' => false,
+                'position_after_functions_and_oop_constructs' => BracesFixer::LINE_NEXT,
+                'position_after_control_structures' => BracesFixer::LINE_SAME,
+                'position_after_anonymous_constructs' => BracesFixer::LINE_SAME
+            ],
+            'no_blank_lines_after_class_opening' => true,
+            'no_extra_blank_lines' => false,
+            'ordered_class_elements' => [
+                'order' => ['use_trait']
+            ],
+            'visibility_required' => [
+                'elements' => ['const', 'method', 'property']
+            ],
+            'binary_operator_spaces' => true,
+            'ternary_operator_spaces' => true,
+            'unary_operator_spaces' => true,
+            'return_type_declaration' => true,
+            'no_trailing_whitespace' => true,
         ],
         '@Symfony' => [
             '@PSR2' => true,

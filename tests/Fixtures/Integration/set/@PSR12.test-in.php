@@ -7,6 +7,7 @@ use function Vendor\Package\{functionA, functionB, functionC};
 use Vendor\Package\SomeNamespace\ClassD as D;
 class Foo extends Bar implements FooInterface {
 
+    public $a, $b, $c;
 
     public function sampleFunction(int $a, int $b = null): array
     {

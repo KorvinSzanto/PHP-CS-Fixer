@@ -10,6 +10,10 @@ use function Vendor\Package\{functionA, functionB, functionC};
 
 class Foo extends Bar implements FooInterface
 {
+    public $a;
+    public $b;
+    public $c;
+
     public function sampleFunction(int $a, int $b = null): array
     {
         if ($someLine === 'Longer Than 120 characters' && $respected->getVersion() === 'PSR12' && $respected->lineLengthRecommendeations() === false) {
@@ -357,6 +361,6 @@ $a, $b, $c
 
 /** @todo Support next line bracket when parameters/implements are multiline
 new class implements
-\ArrayAccess,
-\Countable{
+    \ArrayAccess,
+    \Countable{
 }*/
